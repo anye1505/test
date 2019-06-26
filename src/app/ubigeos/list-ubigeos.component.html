@@ -1,0 +1,99 @@
+<div class="container">
+  <div id="alert" #alert class="alert alert-danger alert-dismissible fade show collapse" role="alert">
+    <button type="button" class="close" aria-label="Close" (click)="closeAlert()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+    <strong>Error de archivo</strong>
+  </div>
+  <h2>Ubigeos</h2>
+  <input type="file" (change)="onChange($event.target.files)"><br><br>
+  <div id="accordion">
+    <div class="card">
+      <div class="card-header">
+        <a class="card-link" data-toggle="collapse" href="#collapseOne">
+          DEPARTAMENTO
+        </a>
+      </div>
+      <div id="collapseOne" class="collapse show" data-parent="#accordion">
+        <div class="card-body">
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Código</th>
+                <th>Nombre</th>
+                <th>Código Padre</th>
+                <th>Descripción Padre</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let item of departaments">
+                <td>{{item.code}}</td>
+                <td>{{item.name}}</td>
+                <td> - </td>
+                <td> - </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-header">
+        <a class="collapsed card-link" data-toggle="collapse" href="#collapseTwo">
+       PROVINCIA
+      </a>
+      </div>
+      <div id="collapseTwo" class="collapse show" data-parent="#accordion">
+        <div class="card-body">
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Código</th>
+                <th>Nombre</th>
+                <th>Código Padre</th>
+                <th>Descripción Padre</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let item of provinces">
+                <td>{{item.code}}</td>
+                <td>{{item.name}}</td>
+                <td>{{item.parentCode}}</td>
+                <td>{{item.parentName}}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-header">
+        <a class="collapsed card-link" data-toggle="collapse" href="#collapseThree">
+          DISTRITO
+        </a>
+      </div>
+      <div id="collapseThree" class="collapse show" data-parent="#accordion">
+        <div class="card-body">
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Código</th>
+                <th>Nombre</th>
+                <th>Código Padre</th>
+                <th>Descripción Padre</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let item of districts">
+                <td>{{item.code}}</td>
+                <td>{{item.name}}</td>
+                <td>{{item.parentCode}}</td>
+                <td>{{item.parentName}}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
